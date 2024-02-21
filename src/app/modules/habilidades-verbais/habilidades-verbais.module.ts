@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HabilidadesVerbaisComponent } from './habilidades-verbais.component';
 import { RouterModule } from '@angular/router';
 import { HABILIDADES_VERBAIS_ROUTES } from './habilidades-verbais.routing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,7 +13,9 @@ import { HABILIDADES_VERBAIS_ROUTES } from './habilidades-verbais.routing';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(HABILIDADES_VERBAIS_ROUTES)
+    RouterModule.forChild(HABILIDADES_VERBAIS_ROUTES),
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class HabilidadesVerbaisModule { }

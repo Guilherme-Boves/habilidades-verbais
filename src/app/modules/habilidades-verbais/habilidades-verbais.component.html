@@ -1,1 +1,134 @@
-<p>habilidades-verbais works!</p>
+<div class="body">
+  <div *ngIf="!isUserRegistered" class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="row w-75">
+      <div class="col-12">
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <form [formGroup]="createUserForm" (ngSubmit)="handleSubmitCreateUser()">
+
+              <label for="name">Nome</label>
+              <input type="text" formControlName="name" class="form-control" name="name">
+
+              <div class="row">
+                <div class="col-6">
+                  <label for="age">Idade</label>
+                  <input type="text" formControlName="age" class="form-control" name="age">
+                </div>
+                <div class="col-6">
+                  <label for="grade">Série</label>
+                  <input type="text" formControlName="grade" class="form-control" name="grade">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-8">
+                  <label for="school">Escola</label>
+                  <input type="text" formControlName="school" class="form-control" name="school">
+                </div>
+                <div class="col-4">
+                  <label for="city">Cidade</label>
+                  <input type="text" formControlName="city" class="form-control" name="city">
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="instructions && !examples" class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="row w-50">
+      <div class="col" align="justify">
+        <div class="card p-2" style="width: 100%;">
+          <div class="card-body">
+            <h5 class="card-title strong d-flex justify-content-center">Vocabulário</h5>
+            <p class="card-text">A seguir você vai encontrar uma séria de ﬁguras. Você deve responder o nome de cada uma delas e sua resposta no espaço delimitado. Quando existir uma seta, você deve nomear aquela parte da ﬁgura que está apontada.</p>
+            <p class="card-text">Responda o máximo que conseguir e siga em frente.</p>
+            <div class="d-flex flex-row-reverse">
+              <button (click)="examples = !examples" class="btn btn-primary">Iniciar Teste</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="examples && !startTest" class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="row w-50">
+      <div class="col" align="justify">
+        <div class="card p-2" style="width: 100%;">
+          <div class="card-body">
+            <h5 class="card-title strong d-flex justify-content-center mb-3">Exemplos</h5>
+            <div class="row">
+              <div class="col-6">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top p-1" src="../../../assets/exemplo1.png" height="200px" width="100px" alt="Card image cap">
+                  <div class="card-body">
+                    <label for="resposta">Resposta:</label>
+                    <input type="text" class="form-control" name="resposta" value="Coleira" disabled>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top p-1" src="../../../assets/exemplo2.png" height="200px" width="100px" alt="Card image cap">
+                  <div class="card-body">
+                    <label for="resposta">Resposta:</label>
+                    <input type="text" class="form-control" name="resposta" value="Tromba" disabled>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center align-items-center mt-3">
+              <button (click)="startTest = !startTest" class="btn btn-primary">Próximo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="startTest && figureIndex < figuresData.length" class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="row w-50">
+      <div class="col" align="justify">
+        <div class="card p-2 d-flex justify-content-center align-items-center" style="width: 100%;">
+          <div class="card-body">
+            <form [formGroup]="userFigureAnswerForm" (ngSubmit)="handleSubmitAnswer()">
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top p-1" src="{{figuresData[figureIndex].src}}" height="200px" width="100px" alt="Card image cap">
+                <div class="card-body">
+                  <label for="answer">Resposta:</label>
+                  <input type="text" class="form-control" formControlName="answer" name="answer">
+                </div>
+              </div>
+              <div class="d-flex justify-content-center align-items-center mt-3 w-100">
+                <button type="submit" class="btn btn-primary">Próximo</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="figureIndex === figuresData.length" class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="row w-50">
+      <div class="col" align="justify">
+        <div class="card p-2" style="width: 100%;">
+          <div class="card-body">
+            <div class="row">
+              <h5 class="card-title strong d-flex justify-content-center align-content-center">Teste Finalizado!</h5>
+              <p class="card-text d-flex justify-content-center align-content-center">Acertos: {{acertos}}</p>
+              <a routerLink="/analogias-verbais" class="btn btn-primary d-flex justify-content-center align-content-center">Iniciar Teste de Analogias Verbais</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
