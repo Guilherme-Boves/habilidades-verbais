@@ -8,27 +8,27 @@
             <form [formGroup]="createUserForm" (ngSubmit)="handleSubmitCreateUser()">
 
               <label for="name">Nome</label>
-              <input type="text" formControlName="name" class="form-control" name="name">
+              <input type="text" formControlName="name" class="form-control" id="name">
 
               <div class="row">
                 <div class="col-6">
                   <label for="age">Idade</label>
-                  <input type="text" formControlName="age" class="form-control" name="age">
+                  <input type="text" formControlName="age" class="form-control" id="age">
                 </div>
                 <div class="col-6">
                   <label for="grade">Série</label>
-                  <input type="text" formControlName="grade" class="form-control" name="grade">
+                  <input type="text" formControlName="grade" class="form-control" id="grade">
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-8">
                   <label for="school">Escola</label>
-                  <input type="text" formControlName="school" class="form-control" name="school">
+                  <input type="text" formControlName="school" class="form-control" id="school">
                 </div>
                 <div class="col-4">
                   <label for="city">Cidade</label>
-                  <input type="text" formControlName="city" class="form-control" name="city">
+                  <input type="text" formControlName="city" class="form-control" id="city">
                 </div>
               </div>
 
@@ -41,12 +41,12 @@
   </div>
 
   <div *ngIf="instructions && !examples" class="container d-flex align-items-center justify-content-center min-vh-100">
-    <div class="row w-50">
+    <div class="row">
       <div class="col" align="justify">
         <div class="card p-2" style="width: 100%;">
           <div class="card-body">
             <h5 class="card-title strong d-flex justify-content-center">Vocabulário</h5>
-            <p class="card-text">A seguir você vai encontrar uma séria de ﬁguras. Você deve responder o nome de cada uma delas e sua resposta no espaço delimitado. Quando existir uma seta, você deve nomear aquela parte da ﬁgura que está apontada.</p>
+            <p class="card-text">A seguir você vai encontrar uma séria de ﬁguras. Você deve responder o nome de cada uma delas e sua resposta no espaço delimitado.<br> Quando existir uma seta, você deve nomear aquela parte da ﬁgura que está apontada.</p>
             <p class="card-text">Responda o máximo que conseguir e siga em frente.</p>
             <div class="d-flex flex-row-reverse">
               <button (click)="examples = !examples" class="btn btn-primary">Iniciar Teste</button>
@@ -58,32 +58,35 @@
   </div>
 
   <div *ngIf="examples && !startTest" class="container d-flex align-items-center justify-content-center min-vh-100">
-    <div class="row w-50">
-      <div class="col" align="justify">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 w-100" align="justify">
         <div class="card p-2" style="width: 100%;">
           <div class="card-body">
             <h5 class="card-title strong d-flex justify-content-center mb-3">Exemplos</h5>
             <div class="row">
-              <div class="col-6">
-                <div class="card" style="width: 18rem;">
-                  <img class="card-img-top p-1" src="../../../assets/exemplo1.png" height="200px" width="100px" alt="Card image cap">
+
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-3">
+                <div class="card">
+                  <img class="card-img-top p-1 img-fluid" src="../../../assets/exemplo1.png" alt="Card image cap">
                   <div class="card-body">
-                    <label for="resposta">Resposta:</label>
-                    <input type="text" class="form-control" name="resposta" value="Coleira" disabled>
+                    <label for="resposta1">Resposta:</label>
+                    <input type="text" class="form-control" id="resposta1" value="Coleira" disabled>
                   </div>
                 </div>
               </div>
-              <div class="col-6">
-                <div class="card" style="width: 18rem;">
-                  <img class="card-img-top p-1" src="../../../assets/exemplo2.png" height="200px" width="100px" alt="Card image cap">
+
+              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="card">
+                  <img class="card-img-top p-1 img-fluid" src="../../../assets/exemplo2.png" alt="Card image cap">
                   <div class="card-body">
-                    <label for="resposta">Resposta:</label>
-                    <input type="text" class="form-control" name="resposta" value="Tromba" disabled>
+                    <label for="resposta2">Resposta:</label>
+                    <input type="text" class="form-control" id="resposta2" value="Tromba" disabled>
                   </div>
                 </div>
               </div>
+
             </div>
-            <div class="d-flex justify-content-center align-items-center mt-3">
+            <div class="d-flex justify-content-center align-items-center mt-2">
               <button (click)="startTest = !startTest" class="btn btn-primary">Próximo</button>
             </div>
           </div>
@@ -93,16 +96,16 @@
   </div>
 
   <div *ngIf="startTest && figureIndex < figuresData.length" class="container d-flex align-items-center justify-content-center min-vh-100">
-    <div class="row w-50">
+    <div class="row">
       <div class="col" align="justify">
         <div class="card p-2 d-flex justify-content-center align-items-center" style="width: 100%;">
           <div class="card-body">
             <form [formGroup]="userFigureAnswerForm" (ngSubmit)="handleSubmitAnswer()">
-              <div class="card" style="width: 18rem;">
-                <img class="card-img-top p-1" src="{{figuresData[figureIndex].src}}" height="200px" width="100px" alt="Card image cap">
+              <div class="card">
+                <img class="card-img-top p-1 img-fluid" src="{{figuresData[figureIndex].src}}" style="max-height: 500px; max-width: 300px;" alt="Card image cap">
                 <div class="card-body">
                   <label for="answer">Resposta:</label>
-                  <input type="text" class="form-control" formControlName="answer" name="answer">
+                  <input type="text" class="form-control" formControlName="answer" id="answer">
                 </div>
               </div>
               <div class="d-flex justify-content-center align-items-center mt-3 w-100">
@@ -116,7 +119,7 @@
   </div>
 
   <div *ngIf="figureIndex === figuresData.length" class="container d-flex align-items-center justify-content-center min-vh-100">
-    <div class="row w-50">
+    <div class="row">
       <div class="col" align="justify">
         <div class="card p-2" style="width: 100%;">
           <div class="card-body">

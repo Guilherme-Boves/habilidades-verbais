@@ -41,10 +41,7 @@ export class HabilidadesVerbaisComponent implements OnInit {
 
   ngOnInit(): void {
     this.figuresData = FIGURES;
-    console.log(this.figuresData[this.figureIndex].id)
-    console.log(this.figuresData[this.figureIndex].src)
-    console.log(this.figuresData[this.figureIndex].answer)
-    this.instructions = true
+    this.instructions = true;
   }
 
   handleSubmitCreateUser() {
@@ -67,6 +64,7 @@ export class HabilidadesVerbaisComponent implements OnInit {
 
   handleSubmitAnswer() {
     if (this.userFigureAnswerForm.valid && this.userFigureAnswerForm.value ) {
+
       const userAnswer: UserFigureAnswer = {
         figureId: this.figuresData[this.figureIndex].id,
         answer: this.userFigureAnswerForm.value.answer as string,
@@ -85,7 +83,7 @@ export class HabilidadesVerbaisComponent implements OnInit {
 
     this.userFigureAnswers.forEach((userAnswer) => {
       this.figuresData.forEach((dbAnswer) => {
-        if (userAnswer.answer === dbAnswer.answer) {
+        if (userAnswer.answer.trim().toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === dbAnswer.answer.trim().toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) {
           this.acertos++;
         }
       })
