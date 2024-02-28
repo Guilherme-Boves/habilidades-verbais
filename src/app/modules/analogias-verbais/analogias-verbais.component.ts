@@ -55,7 +55,7 @@ export class AnalogiasVerbaisComponent implements OnInit {
     if (this.analogiaIndex === 2) return
     this.userAnalogyAnswers.pop();
     this.analogiaIndex--
-    console.log(this.userAnalogyAnswers)
+    //console.log(this.userAnalogyAnswers)
   }
 
   countAcertos() {

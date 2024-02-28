@@ -2,122 +2,122 @@ export const FIGURES = [
   {
     id: 1,
     src: "./assets/1.png",
-    answer: "Bota"
+    answer: ["Bota", "Galocha"]
   },
   {
     id: 2,
     src: "./assets/2.png",
-    answer: "Fivela"
+    answer: ["Fivela"]
   },
   {
     id: 3,
     src: "./assets/3.png",
-    answer: "Trave"
+    answer: ["Trave"]
   },
   {
     id: 4,
     src: "./assets/4.png",
-    answer: "Cílios"
+    answer: ["Cílios"]
   },
   {
     id: 5,
     src: "./assets/5.png",
-    answer: "Labirinto"
+    answer: ["Labirinto"]
   },
   {
     id: 6,
     src: "./assets/6.png",
-    answer: "Âncora"
+    answer: ["Âncora"]
   },
   {
     id: 7,
     src: "./assets/7.png",
-    answer: "Hélice"
+    answer: ["Hélice"]
   },
   {
     id: 8,
     src: "./assets/8.png",
-    answer: "Ferradura"
+    answer: ["Ferradura"]
   },
   {
     id: 9,
     src: "./assets/9.png",
-    answer: "Clave de Sol"
+    answer: ["Clave de Sol"]
   },
   {
     id: 10,
     src: "./assets/10.png",
-    answer: "Sirene"
+    answer: ["Sirene"]
   },
   {
     id: 11,
     src: "./assets/11.png",
-    answer: "Tamanduá"
+    answer: ["Tamanduá"]
   },
   {
     id: 12,
     src: "./assets/12.png",
-    answer: "Armadura"
+    answer: ["Armadura"]
   },
   {
     id: 13,
     src: "./assets/13.png",
-    answer: "Foice"
+    answer: ["Foice", "Lâmina"]
   },
   {
     id: 14,
     src: "./assets/14.png",
-    answer: "Balsa"
+    answer: ["Balsa"]
   },
   {
     id: 15,
     src: "./assets/15.png",
-    answer: "Sela"
+    answer: ["Sela"]
   },
   {
     id: 16,
     src: "./assets/16.png",
-    answer: "Ampulheta"
+    answer: ["Ampulheta"]
   },
   {
     id: 17,
     src: "./assets/17.png",
-    answer: "Represa"
+    answer: ["Represa"]
   },
   {
     id: 18,
     src: "./assets/18.png",
-    answer: "Tatu"
+    answer: ["Tatu"]
   },
   {
     id: 19,
     src: "./assets/19.png",
-    answer: "Escudo"
+    answer: ["Escudo"]
   },
   {
     id: 20,
     src: "./assets/20.png",
-    answer: "Megafone"
+    answer: ["Megafone"]
   },
   {
     id: 21,
     src: "./assets/21.png",
-    answer: "Telescópio"
+    answer: ["Telescópio"]
   },
   {
     id: 22,
     src: "./assets/22.png",
-    answer: "Barril"
+    answer: ["Barril"]
   },
   {
     id: 23,
     src: "./assets/23.png",
-    answer: "Brasão"
+    answer: ["Brasão"]
   },
   {
     id: 24,
     src: "./assets/24.png",
-    answer: "Flamingo"
+    answer: ["Flamingo"]
   },
 ]
 
