@@ -11,7 +11,7 @@ import { UserAnalogyAnswer } from 'src/app/interfaces/analogias/UserAnalogyAnswe
 })
 export class AnalogiasVerbaisComponent implements OnInit {
   isUserRegistered = false;
-  instructions = false;
+  instructions = true;
   examples = false;
   startTest = false;
   analogiaIndex = 2;
@@ -32,7 +32,6 @@ export class AnalogiasVerbaisComponent implements OnInit {
 
   ngOnInit(): void {
     this.analogiasData = ANALOGIES
-    this.instructions = true;
   }
 
   handleSubmitAnswer() {
